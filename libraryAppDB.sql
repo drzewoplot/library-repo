@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `library`.`book` (
   UNIQUE INDEX `isbn` (`isbn` ASC) VISIBLE,
   INDEX `idx_status` (`status` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 8
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `library`.`user` (
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 15
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `library`.`order` (
     FOREIGN KEY (`user_id`)
     REFERENCES `library`.`user` (`user_id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 31
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -127,3 +127,17 @@ DEFAULT CHARACTER SET = utf8;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+------defining roles
+INSERT INTO role VALUES('user', 'add new order');
+INSERT INTO role VALUES('admin', 'all privilegesuser_role');
+
+
+------populating db with sample data
+INSERT INTO library.book (first_name, last_name, title, isbn, status) 
+	VALUES('Henryk', 'Sienkiewicz', 'W pustyni i w puszczy', '9782123456803', 'DOSTEPNA'),
+	('Henryk', 'Sienkiewicz', 'Potop', '9980123456803', 'DOSTEPNA'),
+	('Henryk', 'Sienkiewicz', 'Krzyżacy', '998673456803', 'WYPOZYCZONA'),
+	('John', 'Haldon', 'Wojny Bizancjum', '928345456803', 'DOSTEPNA'),
+	('Frank', 'Lepper', 'Wojna Partyjska Trajana', '900145456803', 'WYPOZYCZONA');
