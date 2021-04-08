@@ -28,7 +28,6 @@ public class OrderService {
         DaoFactory factory = DaoFactory.getDaoFactory();
         OrderDao orderDao = factory.getOrderDao();
         Order orderToUpdate = orderDao.getOrderByBookIdUserId(bookId, userId);
-        System.out.println("metoda updateOrder z klasy Serwisu");
         if (orderToUpdate != null) {
             orderToUpdate.setOrderType(orderType);
             orderDao.update(orderToUpdate);
