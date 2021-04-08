@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class = "navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-        <a href="#" class="navbar-brand">Biblioteka</a>
+        <a href="${pageContext.request.contextPath}/" class="navbar-brand">Biblioteka</a>
 
         <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
             <span class="glyphicon glyphicon-list"></span>
