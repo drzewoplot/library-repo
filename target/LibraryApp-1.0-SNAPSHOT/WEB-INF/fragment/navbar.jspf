@@ -11,6 +11,16 @@
         <div class="collapse navbar-collapse navHeaderCollapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="${pageContext.request.contextPath}/">Strona główna</a></li>
+
+                <c:choose>
+                    <c:when test="${pageContext.request.isUserInRole('admin')}">
+                        <li><a href="${pageContext.request.contextPath}/#">Panel Admina</a></li>
+                    </c:when>
+                    <c:when test="${pageContext.request.isUserInRole('user')}">
+                        <li><a href="${pageContext.request.contextPath}/#">Moje konto</a></li>
+                    </c:when>
+                </c:choose>
+
                 <li><a href="${pageContext.request.contextPath}/add">Dodaj książkę do bazy</a></li>
                 <c:choose>
                     <c:when test="${not empty sessionScope.user}">
