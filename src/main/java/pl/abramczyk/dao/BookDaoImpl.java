@@ -23,9 +23,6 @@ public class BookDaoImpl implements BookDao {
             "INSERT INTO book(first_name, last_name, title, isbn) VALUES(:firstName, :lastName, :title, :isbn);";
     private static final String READ_ALL_BOOKS =
             "SELECT first_name, last_name, title, isbn, status, book_id FROM book;";
-    //    private static final String READ_BOOK = "SELECT first_name, last_name, title, isbn, status, book_id FROM book " +
-//            "LEFT JOIN order ON book.status=order.status AND book.book_id=order.book_id WHERE book_id=:book_id;";
-    //chyba nie potrzebne jest laczenie tabel
     private static final String READ_BOOK =
             "SELECT first_name, last_name, title, isbn, status, book_id FROM book WHERE book_id=:book_id;";
     private static final String UPDATE_BOOK =
