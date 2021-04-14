@@ -17,7 +17,7 @@
                         <li><a href="${pageContext.request.contextPath}/#">Panel Admina</a></li>
                     </c:when>
                     <c:when test="${pageContext.request.isUserInRole('user')}">
-                        <li><a href="${pageContext.request.contextPath}/#">Moje konto</a></li>
+                        <li><a href="${pageContext.request.contextPath}/account">Moje konto</a></li>
                     </c:when>
                 </c:choose>
 

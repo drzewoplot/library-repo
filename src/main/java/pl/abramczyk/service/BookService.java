@@ -52,4 +52,10 @@ public class BookService {
         return books;
     }
 
+    public List<Book> getBorrowedBooks(long userId) {
+        DaoFactory factory = DaoFactory.getDaoFactory();
+        BookDao bookDao = factory.getBookDao();
+        List<Book> books = bookDao.getAll(userId);
+        return books;
+    }
 }

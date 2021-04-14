@@ -41,6 +41,5 @@
 </c:if>
 
 <jsp:include page="fragment/footer.jspf"/>
-
 </body>
 </html>

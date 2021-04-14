@@ -28,6 +28,10 @@ public class BookDaoImpl implements BookDao {
     private static final String UPDATE_BOOK =
             "UPDATE book SET first_name=:firstName, last_name=:lastName, title=:title, isbn=:isbn, status=:status " +
                     "WHERE book_id=:book_id;";
+    private static final String READ_BORROWED_BOOKS_BY_USER_ID =
+            "SELECT book.book_id, first_name, last_name, title, isbn, library.book.status FROM " +
+                    "library.book, library.order WHERE " +
+                    "library.book.book_id=library.order.book_id AND user_id=:user_id AND library.book.status='WYPOZYCZONA';";
 
     private NamedParameterJdbcTemplate template;
 
@@ -86,6 +90,13 @@ public class BookDaoImpl implements BookDao {
     @Override
     public Book getBookByIsbn(String isbn) {
         return null;
+    }
+
+    @Override
+    public List<Book> getAll(long userId) {
+        SqlParameterSource parameterSource = new MapSqlParameterSource("user_id", userId);
+        List<Book> borrowedBooks = template.query(READ_BORROWED_BOOKS_BY_USER_ID, parameterSource, new BookRowMapper());
+        return borrowedBooks;
     }
 
     @Override

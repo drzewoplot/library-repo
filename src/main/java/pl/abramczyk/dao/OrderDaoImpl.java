@@ -27,6 +27,9 @@ public class OrderDaoImpl implements OrderDao {
             "SELECT order_id, date, book_id, user_id, status FROM order" +
                     " WHERE user_id=:user_id AND book_id=:book_id;";
     private static final String UPDATE_ORDER = "UPDATE order SET date=:date, status=:status WHERE order_id=:order_id";
+//    private static final String READ_ORDER_BY_USER_ID =
+//            "SELECT order_id, date, first_name, last_name, title, isbn FROM library.order LEFT JOIN library.book" +
+//                    " on library.order.book_id=library.book.book_id WHERE user_id=:user_id;";
 
     private NamedParameterJdbcTemplate template;
 

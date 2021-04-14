@@ -1,11 +1,9 @@
 package pl.abramczyk.service;
 
-
 import pl.abramczyk.dao.DaoFactory;
 import pl.abramczyk.dao.OrderDao;
 import pl.abramczyk.model.Order;
 import pl.abramczyk.model.OrderType;
-
 
 import java.sql.Timestamp;
 import java.util.Date;
